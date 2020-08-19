@@ -4,7 +4,7 @@
       <div class="uk-navbar-left">
         <ul class="uk-navbar-nav">
           <li>
-            <a href="/">Strapi Blog </a>
+            <a href="/">Coinbox</a>
           </li>
         </ul>
       </div>
@@ -24,7 +24,11 @@
     </nav>
   </div>
 </template>
-
+<style>
+  .uk-navbar-container {
+    border-bottom: 1px solid #eee;
+  }
+</style>
 <script>
 import gql from "graphql-tag";
 

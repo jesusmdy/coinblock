@@ -2,7 +2,9 @@ import Vue from "vue";
 import VueApollo from "vue-apollo";
 import apolloClient from "./vue-apollo";
 import VueRouter from "vue-router";
-
+import 'uikit/dist/css/uikit.min.css'
+import 'uikit/dist/js/uikit.min.js'
+import 'uikit/dist/js/uikit-icons.min.js'
 import App from "./App.vue";
 
 Vue.config.productionTip = false;

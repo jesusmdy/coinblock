@@ -10,7 +10,11 @@ import Nav from "./components/Nav.vue";
 
 export default {
   name: "App",
-  components: { Nav }
+  components: { Nav },
+  metaInfo: {
+    title: 'Coinblock',
+    titleTemplate: '%s · Coinblock'
+  }
 };
 </script>
 

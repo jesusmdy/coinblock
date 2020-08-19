@@ -31,6 +31,7 @@ import VueMarkdownIt from "vue-markdown-it";
 import gql from "graphql-tag";
 
 export default {
+  name: 'Article',
   data() {
     return {
       post: {},
@@ -38,6 +39,11 @@ export default {
       api_url: process.env.VUE_APP_STRAPI_API_URL || "http://localhost:1337",
       routeParam: this.$route.params.id
     };
+  },
+  metaInfo() {
+    return {
+      title: this.post.title      
+    }
   },
   components: {
     VueMarkdownIt
@@ -63,6 +69,13 @@ export default {
         };
       }
     }
-  }
+  }/*,
+  watch: {
+    'post': function (){
+      this.$meta().setOptions({
+        title: this.post.title
+      })
+    }
+  }*/
 };
 </script>

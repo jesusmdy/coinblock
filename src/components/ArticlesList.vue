@@ -58,7 +58,7 @@
 }
 .uk-comment-header {
   border-bottom: 1px solid #f5f5f5 !important;
-  padding-bottom: 20px;
+  padding: 20px;
   width: 95%;
 }
 .uk-comment-header:hover {

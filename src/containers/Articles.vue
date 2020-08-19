@@ -9,6 +9,10 @@ import ArticlesList from "../components/ArticlesList.vue";
 import gql from "graphql-tag";
 
 export default {
+  name: 'BlogArticles',
+  metaInfo: {
+    title: 'Blog Articles'
+  },
   components: {
     ArticlesList
   },

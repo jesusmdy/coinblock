@@ -1,12 +1,6 @@
 <template>
   <div>
-    <div class="uk-section">
-      <div class="uk-container uk-container-large">
-        <h1>Strapi blog</h1>
-
-        <ArticlesList :articles="articles"></ArticlesList>
-      </div>
-    </div>
+    <ArticlesList :articles="posts"></ArticlesList>
   </div>
 </template>
 
@@ -20,20 +14,20 @@ export default {
   },
   data() {
     return {
-      articles: []
+      posts: []
     };
   },
   apollo: {
-    articles: gql`
+    posts: gql`
       query Articles {
-        articles {
+        posts {
           id
           title
           content
           image {
             url
           }
-          category {
+          categories {
             name
           }
         }

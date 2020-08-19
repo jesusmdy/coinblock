@@ -2,9 +2,8 @@ import Vue from "vue";
 import VueApollo from "vue-apollo";
 import apolloClient from "./vue-apollo";
 import VueRouter from "vue-router";
-import 'uikit/dist/css/uikit.min.css'
-import 'uikit/dist/js/uikit.min.js'
-import 'uikit/dist/js/uikit-icons.min.js'
+import "uikit/dist/css/uikit.min.css"
+import "uikit/dist/js/uikit.min.js"
 import App from "./App.vue";
 
 Vue.config.productionTip = false;
@@ -23,8 +22,20 @@ const router = new VueRouter({
       components: require("./containers/Articles.vue")
     },
     {
-      path: "/posts",
-      components: require("./containers/Posts.vue")
+      path: "/blog",
+      redirect: "/blog/articles",
+      components: require(`./containers/Blog.vue`),
+      name: "Blog",
+      children: [
+        {
+          path: "articles",
+          components: require(`./containers/Articles.vue`)
+        },
+        {
+          path: "article/:id",
+          components: require(`./containers/Article.vue`)
+        }
+      ]
     },
     {
       path: "/article/:id",

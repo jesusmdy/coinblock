@@ -2,7 +2,9 @@
   <div>
     <div class="uk-section">
       <div class="uk-container uk-container-large">
-        <h1>Posts | Strapi blog</h1>
+        <h1>
+          Coinblock · Blog
+        </h1>
 
         <ArticlesList :articles="posts"></ArticlesList>
       </div>

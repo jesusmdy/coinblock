@@ -8,7 +8,7 @@
             <router-link to="/">Coinblock</router-link>
           </li>
           <li>
-            <router-link to="/posts">Blog</router-link>
+            <router-link to="/blog">Blog</router-link>
           </li>
         </ul>
       </div>

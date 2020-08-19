@@ -1,24 +1,24 @@
 <template>
   <div>
     <div
-      v-if="article.image"
+      v-if="post.image"
       id="banner"
       class="uk-height-small uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding"
-      :data-src="api_url + article.image.url"
+      :data-src="api_url + post.image.url"
       uk-img
     >
-      <h1>{{ article.title }}</h1>
+      <h1>{{ post.title }}</h1>
     </div>
 
     <div class="uk-section">
       <div class="uk-container uk-container-small">
         <vue-markdown-it
-          v-if="article.content"
-          :source="article.content"
+          v-if="post.content"
+          :source="post.content"
           id="editor"
         />
-        <p v-if="article.published_at">
-          {{ moment(article.published_at).format("MMM Do YY") }}
+        <p v-if="post.published_at">
+          {{ moment(post.published_at).format("MMM Do YY") }}
         </p>
       </div>
     </div>
@@ -33,7 +33,7 @@ import gql from "graphql-tag";
 export default {
   data() {
     return {
-      article: {},
+      post: {},
       moment: moment,
       api_url: process.env.VUE_APP_STRAPI_API_URL || "http://localhost:1337",
       routeParam: this.$route.params.id
@@ -43,10 +43,10 @@ export default {
     VueMarkdownIt
   },
   apollo: {
-    article: {
+    post: {
       query: gql`
-        query Articles($id: ID!) {
-          article(id: $id) {
+        query Posts($id: ID!) {
+          post(id: $id) {
             id
             title
             content

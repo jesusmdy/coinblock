@@ -44,14 +44,6 @@ const router = new VueRouter({
       ]
     },
     {
-      path: "/article/:id",
-      components: require("./containers/Article.vue")
-    },
-    {
-      path: "/category/:id",
-      components: require("./containers/Category.vue")
-    },
-    {
       path: "*",
       components: require("./containers/assertion/404.vue")
     }

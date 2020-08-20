@@ -1,26 +1,48 @@
 <template>
   <div>
-    <div
-      v-if="post.image"
-      id="banner"
-      class="uk-height-small uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding"
-      :data-src="api_url + post.image.url"
-      uk-img
-    >
-      <h1>{{ post.title }}</h1>
-    </div>
-
-    <div class="uk-section">
-      <div class="uk-container uk-container-small">
-        <vue-markdown-it
-          v-if="post.content"
-          :source="post.content"
-          id="editor"
-        />
-        <p v-if="post.published_at">
-          {{ moment(post.published_at).format("MMM Do YY") }}
-        </p>
+    <div class="post" v-if="post">
+      <div
+        v-if="post.image"
+        id="banner"
+        class="uk-height-small uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding"
+        :data-src="api_url + post.image.url"
+        uk-img
+      >
       </div>
+
+      <div class="uk-section">
+        <div class="uk-container uk-container-small">
+          <h2>{{ post.title }}</h2>
+          <vue-markdown-it
+            v-if="post.content"
+            :source="post.content"
+            id="editor"
+          />
+          <div class="meta" v-uf="post.categories">
+            <router-link
+              class="uk-badge"
+              v-for="category in post.categories"
+              :key="category.id"
+              :to="'/blog/category/' + category.slug"
+            >
+              {{ category.name }}
+            </router-link>
+          </div>
+          <p v-if="post.published_at && post.user">
+            Posted by
+            <router-link :to="'/blog/by-user/' + post.user.username">
+              {{ post.user.username }}              
+            </router-link>
+            ·
+            <router-link :to="'/blog/by-date/' + post.published_at">
+              {{ moment(post.published_at).format("MMM Do YY") }}
+            </router-link>
+          </p>
+          <p v-else-if="post.published_at">
+            {{ moment(post.published_at).format("MMM Do YY") }}
+          </p>
+        </div>
+      </div>      
     </div>
   </div>
 </template>
@@ -34,7 +56,9 @@ export default {
   name: 'Article',
   data() {
     return {
-      post: {},
+      posts: [],
+      post: null,
+      title: undefined,
       moment: moment,
       api_url: process.env.VUE_APP_STRAPI_API_URL || "http://localhost:1337",
       routeParam: this.$route.params.id
@@ -42,17 +66,17 @@ export default {
   },
   metaInfo() {
     return {
-      title: this.post.title      
+      title: this.post ? this.post.title : 'Blog Article'
     }
   },
   components: {
     VueMarkdownIt
   },
   apollo: {
-    post: {
+    posts: {
       query: gql`
-        query Posts($id: ID!) {
-          post(id: $id) {
+        query Post($whereSlug: JSON!) {
+          posts(where: $whereSlug) {
             id
             title
             content
@@ -60,22 +84,32 @@ export default {
               url
             }
             published_at
+            categories {
+              id
+              name
+              slug
+            }
+            slug
+            abstract
+            user {
+              username
+            }
           }
         }
       `,
       variables() {
         return {
-          id: this.routeParam
-        };
+          "whereSlug": {
+            "slug": this.$route.params.slug
+          }
+        }
       }
     }
-  }/*,
+  },
   watch: {
-    'post': function (){
-      this.$meta().setOptions({
-        title: this.post.title
-      })
+    'posts': function (){
+      this.post = this.posts[0]
     }
-  }*/
+  }
 };
 </script>

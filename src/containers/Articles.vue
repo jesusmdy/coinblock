@@ -35,6 +35,7 @@ export default {
             name
             slug
           }
+          slug
         }
       }
     `

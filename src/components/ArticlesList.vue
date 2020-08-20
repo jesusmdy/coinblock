@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="articles">
-      <router-link v-for="article in articles" :key="article.id" :to="{ path: '/blog/article/' + article.id }" class="uk-comment">
+      <router-link v-for="article in articles" :key="article.id" :to="{ path: '/blog/article/' + article.slug }" class="uk-comment">
         <div class="uk-comment-header">
           <div class="uk-grid-medium uk-flex-middle" uk-grid>
             <div class="uk-width-auto">

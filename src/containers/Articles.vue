@@ -33,6 +33,7 @@ export default {
           }
           categories {
             name
+            slug
           }
         }
       }

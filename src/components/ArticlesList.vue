@@ -1,9 +1,6 @@
 <template>
   <div>
     <div class="articles">
-      <h1>
-        Articles
-      </h1>
       <router-link v-for="article in articles" :key="article.id" :to="{ path: '/blog/article/' + article.id }" class="uk-comment">
         <div class="uk-comment-header">
           <div class="uk-grid-medium uk-flex-middle" uk-grid>
@@ -34,7 +31,7 @@
                   </div>
                 </li>
                 <li class="category-tag" v-for="category in article.categories" :key="category.id">
-                  <router-link :to="'/blog/category/'+category.name">
+                  <router-link :to="'/blog/category/'+category.slug">
                     {{ category.name }}
                   </router-link>
                 </li>

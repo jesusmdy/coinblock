@@ -22,7 +22,6 @@
     "vue-apollo": "^3.0.3",
     "vue-i18n": "^8.21.0",
     "vue-markdown-it": "^0.9.4",
-    "vue-material-design-icons": "^4.9.0",
     "vue-meta": "^2.4.0",
     "vue-router": "^3.1.5"
   },

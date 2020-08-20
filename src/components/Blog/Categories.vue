@@ -9,9 +9,8 @@
       </div>
 			<ul class="uk-list">
 				<li v-for="category in categories" :key="category.id">
-          <router-link :to="'/blog/category/'+category.name">
-            <PoundIcon />
-            {{ category.name }}
+          <router-link :to="'/blog/category/'+category.slug">
+            #{{ category.name }}
           </router-link>
 				</li>
 			</ul>
@@ -23,7 +22,6 @@
   display: block;
   width: 100%;
   padding: 10px 0;
-  text-transform: capitalize;
 }
 .loader {
   height: 200px;
@@ -38,9 +36,6 @@ import moment from 'moment';
 import gql from "graphql-tag";
 export default {
 	name: 'Categories',
-  components: {
-    PoundIcon: () => import(`vue-material-design-icons/Pound.vue`)
-  },
 	data() {
 		return {
 			categories: [],
@@ -53,6 +48,7 @@ export default {
 		    categories {
 		      id
 		      name
+		      slug
 		      created_at
 		    }
 		  }

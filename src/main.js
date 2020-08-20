@@ -36,6 +36,10 @@ const router = new VueRouter({
         {
           path: "article/:id",
           components: require(`./containers/Article.vue`)
+        },
+        {
+          path: 'category/:category',
+          components: require(`./containers/Blog/Category.vue`)
         }
       ]
     },

@@ -5,13 +5,12 @@
 		</h2>
 	</div>
 </template>
-<style>
-.err {
-	height: 500px;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
+<style lang="stylus" scoped>
+.err
+	height 500px
+	width 100%
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
 </style>

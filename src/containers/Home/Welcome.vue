@@ -26,6 +26,7 @@
 			</div>
 			<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 image">
 				<div class="layer" />
+				<div class="pres" />
 			</div>
 		</div>
 	</div>
@@ -41,7 +42,7 @@
 			padding 0
 			margin 0
 			&.text
-				background-color #fff
+				background-repeat no-repeat
 				display flex
 				flex-direction column
 				align-items flex-start
@@ -88,9 +89,21 @@
 					bottom 0
 					width 100%
 					height 100%
-					background-image url('/assets/path1092.png')
+					background-image url('../../assets/images/vectors/g5597.png')
 					background-position bottom right
 					background-size 100%
+					background-repeat no-repeat
+				.pres
+					position absolute
+					left 0
+					right 0
+					top 0
+					bottom 0
+					width 100%
+					height 100%
+					background-image url('../../assets/images/vectors/g971.png')
+					background-position center
+					background-size 50%
 					background-repeat no-repeat
 </style>
 <script>

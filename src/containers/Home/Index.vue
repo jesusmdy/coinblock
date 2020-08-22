@@ -3,6 +3,7 @@
 		<div class="landing">
 			<Nav />
 			<router-view />
+			<Foo />
 		</div>		
 	</div>
 </template>
@@ -22,10 +23,12 @@
 </style>
 <script>
 import Nav from '@/components/Home/Nav.vue'
+import Foo from '@/components/Home/Footer.vue'
 export default {
 	name: 'HomeIndex',
 	components: {
-		Nav
+		Nav,
+		Foo
 	},
 	metaInfo: {
     title: 'Coindex · Home'

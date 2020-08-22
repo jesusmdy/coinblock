@@ -28,8 +28,8 @@
 				<div class="features">
 
 					<div class="feature row">
-						<div class="image-logo col-3">
-							<img src="@/assets/images/icons/lock.svg">
+						<div class="image-logo col-3 security">
+							<img v-if="false" src="@/assets/images/vectors/features/g3158.png">
 						</div>
 						<div class="body col-6">
 							<div class="title">
@@ -53,14 +53,14 @@
 								With our step-to-step guidance you never will get a headache
 							</div>
 						</div>
-						<div class="image-logo col-3">
-							<img src="@/assets/images/icons/check.svg">
+						<div class="image-logo col-3 easy">
+							<img v-if="false" src="@/assets/images/vectors/features/g3080.png">
 						</div>
 					</div>
 
 					<div class="feature row">
-						<div class="image-logo col-3">
-							<img src="@/assets/images/icons/server.svg">
+						<div class="image-logo col-3 backup">
+							<img v-if="false" src="@/assets/images/vectors/features/g2686.png">
 						</div>
 						<div class="body col-6">
 							<div class="title">
@@ -85,8 +85,8 @@
 								We have guides and rulesets which will help you a lot
 							</div>
 						</div>
-						<div class="image-logo col-3">
-							<img src="@/assets/images/icons/rss.svg">
+						<div class="image-logo col-3 customer">
+							<img v-if="false" src="@/assets/images/vectors/features/g3336.png">
 						</div>
 					</div>
 
@@ -106,6 +106,11 @@
 			padding 0
 			margin 0
 			&.text
+				background-color #fff
+				background-image url('../../assets/images/vectors/g5597.png')
+				background-position bottom right
+				background-size 70%
+				background-repeat no-repeat
 				background-color #fff
 				display flex
 				flex-direction column
@@ -139,14 +144,15 @@
 								&:hover
 									box-shadow 0 0 0 3px #27273c
 			&.image
-				background-image url('/assets/path644.png')
-				background-position -190px -1px
+				background-image url('../../assets/images/vectors/g1017.png')
+				background-position top center
 				background-size 100%
 				background-repeat no-repeat
 				background-color #27273c
 				.title
 					height 80px
 					padding 20px 40px
+					padding-bottom 0
 					font-size 20pt
 					color #fff
 				.features
@@ -158,8 +164,21 @@
 							flex-direction column
 							justify-content center
 							align-items center
+							background-size contain
+							background-position center
+							background-repeat no-repeat
+							min-height 100px
+							&.security
+								background-image url('../../assets/images/vectors/features/g3158.png')
+								background-size 105%
+							&.easy
+								background-image url('../../assets/images/vectors/features/g3080.png')
+							&.backup
+								background-image url('../../assets/images/vectors/features/g2686.png')
+							&.customer
+								background-image url('../../assets/images/vectors/features/g3336.png')
 							img
-								width 100px
+								width 130px
 						.body
 							.title
 								padding 0

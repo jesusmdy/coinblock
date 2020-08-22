@@ -1,6 +1,6 @@
 <template>
 	<div class="main">
-		<div class="header"><Nav /></div>
+		<AppNav />
 		<router-view />
 	</div>
 </template>
@@ -14,9 +14,6 @@
 </style>
 <script>
 export default {
-	name: 'AuthIndex',
-	components: {
-		Nav: () => import(`@/components/Auth/Nav.vue`)
-	}
+	name: 'AuthIndex'
 }
 </script>

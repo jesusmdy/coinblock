@@ -1,8 +1,11 @@
 <template>
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-sm-12 col-md-5 col-lg-5 col-xl-5 uk-card uk-card-default uk-card-body">
-				<h1 class="uk-card-title">Sign In</h1>
+			<form action="./" method="post" class="col-sm-12 col-md-5 col-lg-5 col-xl-5 uk-card uk-card-muted uk-card-body">
+				<div class="logo">
+					<img src="@/assets/images/logo/logo.svg" />
+					<h1 class="uk-card-title">Sign In</h1>
+				</div>
 				<legend class="uk-legend">Continue with your account</legend>
 				<div class="uk-margin">
 					<input class="uk-input" type="email" required placeholder="Your email">
@@ -17,31 +20,16 @@
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-6 col-lg-6">
-						<button class="uk-button uk-button-primary">Primary</button>
+						<button class="uk-button uk-button-primary">Confirm</button>
 					</div>
 				</div>
-			</div>
+			</form>
 		</div>
 		<div class="card"></div>
 	</div>
 </template>
-<style lang="stylus" scoped>
-.container
-	margin-top: -150px;
-	.row
-		.uk-card
-			.uk-card-title
-				font-size 40pt
-			.footer
-				div
-					padding 0
-					margin 0
-					display flex
-					flex-direction column
-					align-items center
-					justify-content center
-</style>
 <script>
+import '@/styles/pages/sign-in.styl'
 export default {
 	name: 'AuthSignIn'
 }

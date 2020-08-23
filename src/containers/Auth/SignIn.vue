@@ -17,6 +17,9 @@
 				uk-card-body
 			"
 		>
+			<a href="/" class="logo">
+				<img src="@/assets/images/logo/logo.svg" alt="Logo">
+			</a>
 			<div class="title row">
 				<div class="col-6 title">
 					<legend class="uk-legend">Sign In</legend>
@@ -66,6 +69,11 @@
 		padding 50px 40px
 		background none
 		text-align center
+		.logo
+			display block
+			padding-bottom 20px
+			img
+				width 70px
 		.title.row
 			div
 				padding 0

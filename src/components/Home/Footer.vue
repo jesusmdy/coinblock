@@ -17,6 +17,7 @@
 </template>
 <style scoped lang="stylus">
 footer.foo
+	z-index 100
 	position fixed
 	transform translateY(330px)
 	left 0

@@ -25,12 +25,18 @@
 					router-view
 				"
 			>
-				<router-view />
+				<transition name="fade" mode="out-in" appear>
+					<router-view />
+				</transition>
 			</div>
 		</div>
 	</div>
 </template>
 <style lang="stylus" scoped>
+.fade-enter-active, .fade-leave-active
+	transition opacity 0.3s
+.fade-enter, .fade-leave-active
+	opacity 0
 @media all and (max-width: 760px)
 	.main
 		.viewport

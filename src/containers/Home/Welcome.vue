@@ -25,8 +25,7 @@
 				</div>
 			</div>
 			<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 image">
-				<div class="layer" />
-				<div class="pres" />
+				<Carousel />
 			</div>
 		</div>
 	</div>
@@ -75,40 +74,15 @@
 								&:hover
 									box-shadow 0 0 0 3px #27273c
 			&.image
-				position relative
-				background-image url('/assets/path644.png')
-				background-position -190px -1px
-				background-size 100%
-				background-repeat no-repeat
-				background-color #27273c
-				.layer
-					position absolute
-					left 0
-					right 0
-					top 0
-					bottom 0
-					width 100%
-					height 100%
-					background-image url('../../assets/images/vectors/g5597.png')
-					background-position bottom right
-					background-size 100%
-					background-repeat no-repeat
-				.pres
-					position absolute
-					left 0
-					right 0
-					top 0
-					bottom 0
-					width 100%
-					height 100%
-					background-image url('../../assets/images/vectors/g971.png')
-					background-position center
-					background-size 50%
-					background-repeat no-repeat
+				height 100%
 </style>
 <script>
+import Carousel from '@/components/Home/Carousel.vue'
 export default {
 	name: 'HomeWelcome',
+	components: {
+		Carousel
+	},
 	metaInfo: {
     title: 'Coindex · Welcome'
   },

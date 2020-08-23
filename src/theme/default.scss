@@ -1,12 +1,16 @@
-// 1. Your custom variables and variable overwrites.
-$global-link-color: #FF5722;
-$global-primary-background: #FF5722;
-$global-border-width: 3px;
+
+$border-rounded-border-radius: 10px;
+$global-link-color: #86377b;
+$global-primary-background: #86377b;
+$global-border-width: 2px;
 $global-color: #000;
 
-// 2. Import default variables and available mixins.
+
 @import "uikit/src/scss/variables-theme.scss";
 @import "uikit/src/scss/mixins-theme.scss";
-
-// 4. Import UIkit.
 @import "uikit/src/scss/uikit-theme.scss";
+
+@import "body.scss";
+@import "grid.scss";
+@import "button.scss";
+@import "input.scss";

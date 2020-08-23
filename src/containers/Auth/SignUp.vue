@@ -1,41 +1,111 @@
 <template>
-	<div class="container">
-		<div class="row justify-content-center">
-			<form action="./" method="post" class="col-sm-12 col-md-5 col-lg-5 col-xl-5 uk-card uk-card-default uk-card-body">
-				<div class="logo">
-					<img src="@/assets/images/logo/logo.svg" />
-					<h1 class="uk-card-title">Sign Up</h1>
+	<div class="row c justify-content-center align-items-center">
+		<form
+			action="./"
+			method="post"
+			class="
+				col-sm-12
+				col-md-8
+				col-lg-8
+				col-xl-8
+				uk-card
+				uk-card-default
+				uk-card-body
+			"
+		>
+			<div class="title row">
+				<div class="col-6 title">
+					<legend class="uk-legend">Sign up</legend>
 				</div>
-				<legend class="uk-legend">Create a new account</legend>
-				<div class="uk-margin">
-					<input class="uk-input" type="email" required placeholder="New email">
+				<div class="col-6 ssos">
+					<button class="sso facebook">
+						<img src="@/assets/images/icons/facebook.svg" />
+					</button>
+					<button class="sso google">
+						<img src="@/assets/images/icons/google.svg" />
+					</button>
 				</div>
-				<div class="uk-margin">
-					<input class="uk-input" type="text" required placeholder="New username">
-				</div>
-				<div class="uk-margin">
-					<input class="uk-input" type="password" required placeholder="New password">
-				</div>
-				<div class="row no-gutters footer">
-					<div class="col-sm-12 col-md-6 col-lg-6 uk-text-center">
-						<router-link class="uk-button uk-button-link" to="/auth/sign-in">Sign In</router-link>
-					</div>
-					<div class="col-sm-12 col-md-6 col-lg-6">
-						<button class="uk-button uk-button-primary">Continue</button>
-					</div>
-				</div>
-			</form>
-		</div>
+			</div>
+			<div class="uk-margin">
+				<input class="uk-input" type="email" required placeholder="New email">
+			</div>
+			<div class="uk-margin">
+				<input class="uk-input" type="text" required placeholder="New username">
+			</div>
+			<div class="uk-margin">
+				<input class="uk-input" type="password" required placeholder="New password">
+			</div>
+			<div class="uk-margin foo">
+				<button class="uk-button uk-button-primary">
+					Continue
+				</button>
+			</div>
+			<div class="uk-margin">
+				<p>
+					Do you already have an account? <router-link to="./sign-in">Sign in now.</router-link>
+				</p>
+			</div>
+		</form>
 	</div>
 </template>
 <style scoped lang="stylus">
-.uk-button-primary
-	border-radius 30px
-	box-shadow 0px 3px 5px #eee
+@media all and (max-width: 760px)
+	.row.c
+		.uk-card
+			height 100%
+			overflow auto
+.row.c
+	background-image url('../../assets/images/vectors/g5597.png')
+	background-size 60%
+	background-repeat no-repeat
+	background-position bottom right
+	width 100%
+	height 100%
+	.uk-card
+		padding 50px 40px
+		background none
+		text-align center
+		.title.row
+			div
+				padding 0
+				&.title
+					text-align left
+					legend
+						padding 0 20px
+						font-size 30pt
+				&.ssos
+					display flex
+					flex-direction row
+					justify-content flex-end
+					align-items center
+					.sso
+						padding 10px
+						margin 10px
+						border-radius 30px
+						border none
+						background none
+						cursor pointer
+						&:hover
+							box-shadow 0px 3px 5px #eee
+						&.facebook
+							margin-right 0
+							img
+								width 25px
+								height 25px
+						&.google
+							margin-right 0
+							img
+								width 25px
+								height 25px
+		.uk-margin
+			&.foo
+				.uk-button
+					width 100%
+					color #fff
 </style>
 <script>
 import '@/styles/pages/sign-up.styl'
 export default {
-	name: 'AuthSignIn'
+	name: 'AuthSignUp'
 }
 </script>

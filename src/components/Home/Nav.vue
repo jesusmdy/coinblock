@@ -66,24 +66,7 @@
   }
 </style>
 <script>
-import gql from "graphql-tag";
-
 export default {
-  name: "Nav",
-  data() {
-    return {
-      categories: []
-    };
-  },
-  apollo: {
-    categories: gql`
-      query Categories {
-        categories {
-          id
-          name
-        }
-      }
-    `
-  }
-};
+  name: "Nav"
+}
 </script>

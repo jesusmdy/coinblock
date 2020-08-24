@@ -1,11 +1,14 @@
 import Vue from "vue";
 import VueApollo from "vue-apollo";
-import apolloClient from "./vue-apollo";
+import apolloClient from "@/vue-apollo";
 import VueRouter from "vue-router";
 import VueMeta from 'vue-meta'
 import Api from '@/plugins/axios.api.js'
 import StrapiApi from '@/plugins/strapi-sdk.api.js'
-import store from './store'
+import store from '@/store'
+import Uikit from '@/plugins/uikit.js'
+import Auth from '@/plugins/auth.js'
+import router from '@/router'
 
 // File import
 import "@/theme/default.scss"
@@ -23,73 +26,14 @@ Vue.use(VueRouter);
 Vue.use(VueMeta)
 Vue.use(Api)
 Vue.use(StrapiApi)
+Vue.use(Uikit)
+Vue.use(Auth)
 
 Vue.component('AppNav', Nav)
 
 const apolloProvider = new VueApollo({
   defaultClient: apolloClient
-});
-
-const router = new VueRouter({
-  mode: "history",
-  routes: [
-    {
-      path: "/",
-      components: require("./containers/Home/Index.vue"),
-      redirect: '/welcome',
-      children: [
-        {
-          path: 'welcome',
-          components: require("./containers/Home/Welcome.vue")
-        },
-        {
-          path: 'intro',
-          components: require("./containers/Home/Intro.vue")
-        }
-      ]
-    },
-    {
-      path: '/auth',
-      redirect: '/auth/sign-in',
-      components: require("./containers/Auth/Index.vue"),
-      name: 'Auth',
-      children: [
-        {
-          path: 'sign-in',
-          components: require("./containers/Auth/SignIn.vue")
-        },
-        {
-          path: 'sign-up',
-          components: require("./containers/Auth/SignUp.vue")
-        }
-      ]
-    },
-    {
-      path: "/blog",
-      redirect: "/blog/articles",
-      components: require(`./containers/Blog.vue`),
-      name: "Blog",
-      children: [
-        {
-          path: "articles",
-          components: require(`./containers/Articles.vue`)
-        },
-        {
-          path: "article/:slug",
-          components: require(`./containers/Article.vue`)
-        },
-        {
-          path: 'category/:category',
-          components: require(`./containers/Blog/Category.vue`)
-        }
-      ]
-    },
-    {
-      path: "*",
-      components: require("./containers/assertion/404.vue")
-    }
-  ]
-});
+})
 
 new Vue({
   apolloProvider,

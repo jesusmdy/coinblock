@@ -11,8 +11,14 @@ export default {
   metaInfo: {
     title: 'Coinblock',
     titleTemplate: '%s · Coinblock'
+  },
+  mounted() {
+    this.$api.get('/users/me')
+    .then(response => {
+      this.$store.commit('setUser', response.data)
+    })
   }
-};
+}
 </script>
 
 <style lang="css">

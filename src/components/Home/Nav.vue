@@ -13,7 +13,21 @@
         </ul>
       </div>
 
-      <div class="uk-navbar-right">
+      <div v-if="user && user.username" class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+          <li>
+            <router-link to="/user/me">
+              {{ user.username }}
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/user/me/dashboard">
+              Dashboard
+            </router-link>
+          </li>
+        </ul>
+      </div>
+      <div v-else class="uk-navbar-right">
         <ul class="uk-navbar-nav">
           <li>
             <router-link to="/auth/sign-up">
@@ -67,6 +81,11 @@
 </style>
 <script>
 export default {
-  name: "Nav"
+  name: "Nav",
+  computed: {
+    user() {
+      return this.$store.getters.getUser
+    }
+  }
 }
 </script>

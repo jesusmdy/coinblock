@@ -3,6 +3,9 @@ import VueApollo from "vue-apollo";
 import apolloClient from "./vue-apollo";
 import VueRouter from "vue-router";
 import VueMeta from 'vue-meta'
+import Api from '@/plugins/axios.api.js'
+import StrapiApi from '@/plugins/strapi-sdk.api.js'
+import store from './store'
 
 // File import
 import "@/theme/default.scss"
@@ -18,6 +21,8 @@ Vue.config.productionTip = false;
 Vue.use(VueApollo);
 Vue.use(VueRouter);
 Vue.use(VueMeta)
+Vue.use(Api)
+Vue.use(StrapiApi)
 
 Vue.component('AppNav', Nav)
 
@@ -89,5 +94,6 @@ const router = new VueRouter({
 new Vue({
   apolloProvider,
   router,
+  store,
   render: h => h(App)
 }).$mount("#app");

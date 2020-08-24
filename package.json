@@ -9,21 +9,25 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@accounts/boost": "^0.29.0",
     "apollo-cache-inmemory": "^1.6.5",
     "apollo-client": "^2.6.8",
     "apollo-link": "^1.2.13",
     "apollo-link-http": "^1.5.16",
+    "axios": "^0.20.0",
     "core-js": "^3.6.4",
     "graphql": "^14.6.0",
     "graphql-tag": "^2.10.3",
     "moment": "^2.27.0",
+    "strapi-sdk-javascript": "^0.3.3",
     "uikit": "^3.5.6",
     "vue": "^2.6.11",
     "vue-apollo": "^3.0.3",
     "vue-i18n": "^8.21.0",
     "vue-markdown-it": "^0.9.4",
     "vue-meta": "^2.4.0",
-    "vue-router": "^3.1.5"
+    "vue-router": "^3.1.5",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.2.0",

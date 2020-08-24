@@ -2,6 +2,7 @@
 	<div class="row c justify-content-center align-items-center">
 		<form
 			action="./"
+			@submit.prevent="confirm"
 			method="post"
 			class="
 				col-sm
@@ -34,10 +35,10 @@
 				</div>
 			</div>
 			<div class="uk-margin">
-				<input class="uk-input" type="email" required placeholder="New email">
+				<input class="uk-input" v-model="data.identifier" type="text" required placeholder="Your email or username">
 			</div>
 			<div class="uk-margin">
-				<input class="uk-input" type="password" required placeholder="New password">
+				<input class="uk-input" v-model="data.password" type="password" required placeholder="Your password">
 			</div>
 			<div class="uk-margin foo">
 				<button class="uk-button uk-button-primary">
@@ -115,6 +116,27 @@
 <script>
 import '@/styles/pages/sign-up.styl'
 export default {
-	name: 'AuthSignIn'
+	name: 'AuthSignIn',
+	data() {
+		return {
+			data: {
+				identifier: null,
+				password: null
+			}
+		}
+	},
+	methods: {
+		confirm() {
+			this.$uikit.notification({
+				message: 'my-message!',
+				status: 'primary',
+				pos: 'top-right',
+				timeout: 5000
+			})
+			this.$strapi.login(this.data.identifier, this.data.password)
+			.then(res => console.log(res))
+			.catch(err => console.log(err))
+		}
+	}
 }
 </script>

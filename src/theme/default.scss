@@ -2,7 +2,7 @@
 $border-rounded-border-radius: 10px;
 $global-link-color: #86377b;
 $global-primary-background: #86377b;
-$global-border-width: 2px;
+$global-border-width: 1;
 $global-color: #000;
 
 
@@ -17,5 +17,6 @@ $global-color: #000;
 @import "grid.scss";
 @import "button.scss";
 @import "input.scss";
+@import "progress_bar.scss";
 
 // Sass

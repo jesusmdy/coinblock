@@ -1,6 +1,7 @@
 <template>
-	<div class="welcome">
-		<div class="row main">
+	<div class="welcome container-fluid">
+		<Nav />
+		<div class="row main no-gutters">
 			<div
 				class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text"
 			>
@@ -15,11 +16,11 @@
 						Discover how easy you can trade your crypto currency with another cash, keep it stupid simple, secure and fast.
 					</p>
 					<div class="buttons">
-						<a href="/auth/sign-up" class="button get-started">
+						<router-link to="/auth/sign-up" class="button get-started">
 							Get started
-						</a>
+						</router-link>
 						<router-link class="button tour" to="/intro">
-							Take a tour
+							See how it works
 						</router-link>
 					</div>					
 				</div>
@@ -32,6 +33,11 @@
 </template>
 <style scoped lang="stylus">
 .welcome
+	position fixed
+	left 0
+	right 0
+	top 0
+	bottom 0
 	width 100%
 	height 100%
 	.main
@@ -78,10 +84,12 @@
 </style>
 <script>
 import Carousel from '@/components/Home/Carousel.vue'
+import Nav from '@/components/Home/Nav.vue'
 export default {
 	name: 'HomeWelcome',
 	components: {
-		Carousel
+		Carousel,
+		Nav
 	},
 	metaInfo: {
     title: 'Coindex · Welcome'

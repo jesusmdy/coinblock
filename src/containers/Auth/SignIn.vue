@@ -18,6 +18,7 @@
 				uk-card-body
 			"
 		>
+			<div v-if="loading" class="progress"></div>
 			<a href="/" class="logo">
 				<img src="@/assets/images/logo/logo.svg" alt="Logo">
 			</a>
@@ -35,13 +36,30 @@
 				</div>
 			</div>
 			<div class="uk-margin">
-				<input class="uk-input" v-model="data.identifier" type="text" required placeholder="Your email or username">
+				<input
+					:disabled="loading"
+					class="uk-input"
+					v-model="data.identifier"
+					type="text"
+					required
+					placeholder="Your email or username"
+				>
 			</div>
 			<div class="uk-margin">
-				<input class="uk-input" v-model="data.password" type="password" required placeholder="Your password">
+				<input
+					:disabled="loading"
+					class="uk-input"
+					v-model="data.password"
+					type="password"
+					required
+					placeholder="Your password"
+				>
 			</div>
 			<div class="uk-margin foo">
-				<button class="uk-button uk-button-primary">
+				<button
+					:disabled="loading"
+					class="uk-button uk-button-primary"
+				>
 					Continue
 				</button>
 			</div>
@@ -70,6 +88,12 @@
 		padding 50px 40px
 		background none
 		text-align center
+		.progress
+			position absolute
+			left 0
+			right 0
+			top 0
+			width 100%
 		.logo
 			display block
 			padding-bottom 20px
@@ -122,7 +146,8 @@ export default {
 			data: {
 				identifier: null,
 				password: null
-			}
+			},
+			loading: false
 		}
 	},
 	methods: {
@@ -143,6 +168,7 @@ export default {
 				}
 			})
 			.catch(err => {
+					this.loading = false
 					err.response.data.message.forEach(message => {
 					window.localStorage.removeItem('jwt')
 					message.messages.forEach(msg => {
@@ -158,6 +184,7 @@ export default {
 		},
 		confirm() {
 			if(this.data.identifier && this.data.password) {
+				this.loading = true
 				this.doAuth()
 			} else {
 				this.$uikit.notification({

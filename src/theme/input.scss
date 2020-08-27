@@ -1,4 +1,13 @@
 .uk-input {
 	padding: 20px;
 	border-radius: $border-rounded-border-radius;
+	background: #eee;
+	&:hover {
+		background: #fff;
+		box-shadow: 0 0 0 3px #86377b3b;
+	}
+	&:active, &:focus {
+		box-shadow: 0 0 0 3px #86377b3b;
+		border-color: $global-primary-background;
+	}
 }

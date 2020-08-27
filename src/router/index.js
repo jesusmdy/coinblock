@@ -4,13 +4,21 @@ const router = new VueRouter({
   mode: "history",
   routes: [
     {
+      path: "/me",
+      redirect: '/user/me'
+    },
+    {
       path: "/",
       components: require("@/containers/Home/Index.vue"),
       redirect: '/welcome',
       children: [
         {
           path: 'welcome',
-          components: require("@/containers/Home/Welcome.vue")
+          components: require("@/containers/Home/Index.alt.vue")
+        },
+        {
+          path: 'tour',
+          components: require("@/containers/Home/Tour.vue")
         },
         {
           path: 'intro',
@@ -30,7 +38,18 @@ const router = new VueRouter({
         {
           path: 'me',
           name: 'UserMe',
-          components: require("@/containers/User/Me.vue")
+          redirect: '/user/me/overview',
+          components: require("@/containers/User/Me.vue"),
+          children: [
+            {
+              path: 'overview',
+              components: require("@/containers/User/Overview.vue")
+            },
+            {
+              path: 'info',
+              components: require("@/containers/User/UserInfo.vue")
+            }
+          ]
         }
       ]
     },

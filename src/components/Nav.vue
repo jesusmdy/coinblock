@@ -12,13 +12,33 @@
           </li>
         </ul>
       </div>
-
-      <div v-if="user && user.username" class="uk-navbar-right">
+      <div v-if="loadingUserData" class="uk-navbar-right">
         <ul class="uk-navbar-nav">
           <li>
-            <router-link to="/user/me">
+            <a href="#">
+              <div uk-spinner></div>              
+            </a>
+          </li>          
+        </ul>
+      </div>
+      <div v-else-if="user && user.username" class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+          <li>
+            <a class="uk-dropdown-toggle">
               {{ user.username }}
-            </router-link>
+            </a>
+            <div toggle=".uk-dropdown-toggle" uk-dropdown="mode: click">
+              <ul class="uk-nav uk-dropdown-nav">
+                <li>
+                  <router-link to="/user/me">Profile</router-link>
+                </li>
+                <li>
+                  <a href="#" @click.prevent="$store.commit('logout')">
+                    Sign Out
+                  </a>
+                </li>
+              </ul>
+            </div>
           </li>
           <li>
             <router-link to="/user/me/dashboard">
@@ -71,6 +91,9 @@ export default {
   computed: {
     user() {
       return this.$store.getters.getUser
+    },
+    loadingUserData() {
+      return this.$store.getters.getLoadingUserDataStatus
     }
   }
 }

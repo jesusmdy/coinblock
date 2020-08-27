@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view :key="$route.fullPath"></router-view>
+    <router-view @logout="$router.push({ path: '/auth/sign-out' })" :key="$route.fullPath"></router-view>
   </div>
 </template>
 
@@ -13,9 +13,16 @@ export default {
     titleTemplate: '%s · Coinblock'
   },
   mounted() {
+    this.$store.commit('toggleLoadingUserData', true)
     this.$api.get('/users/me')
     .then(response => {
-      this.$store.commit('setUser', response.data)
+      const user = response.data
+      this.$api.get(`/profiles/${user.id}`)
+      .then(res => {
+        this.$store.commit('setUser', user)
+        this.$store.commit('setProfile', res.data)
+        this.$store.commit('toggleLoadingUserData', false)
+      })
     })
   }
 }
